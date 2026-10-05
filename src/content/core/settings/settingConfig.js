@@ -46,7 +46,10 @@ export const SETTINGS_CONFIG = {
                         value: 'ro',
                     },
                     {
-                        label: languageLabel('Indonesian (Bahasa Indonesia)', 'id'),
+                        label: languageLabel(
+                            'Indonesian (Bahasa Indonesia)',
+                            'id',
+                        ),
                         value: 'id',
                     },
                     {
@@ -2088,6 +2091,8 @@ export const SETTINGS_CONFIG = {
                     'Shows how much Robux you have left before the daily and monthly Roblox Plus transfer limits on the [Plus](https://www.roblox.com/plus) page.',
                 type: 'checkbox',
                 default: true,
+                storageKey: 'rovalra_robux_transfer_limits_v1',
+                contributors: ['48255812', '447170745'],
             },
             plusReferralEnabled: {
                 label: 'Show RoValra Plus Referral',
@@ -2457,6 +2462,14 @@ export const SETTINGS_CONFIG = {
                 type: 'checkbox',
                 default: true,
                 contributors: ['2239549101'],
+            },
+            sidebarVerifiedBadgeEnabled: {
+                label: 'Fixes a few spots where the verified badge is missing',
+                description: [
+                    "Shows the verified badge next to your name in the sidebar and top bar if you're verified.",
+                ],
+                type: 'checkbox',
+                default: true,
             },
             disableThumbnailBackground: {
                 label: 'Disable Thumbnail Backgrounds',
