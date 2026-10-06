@@ -36,6 +36,7 @@ import { init as initRenderTest } from './features/developer/rendertest.js';
 import { init as initGroupFunds } from './features/navigation/groupfunds.js';
 import { init as initUrlTracker } from './core/utils/trackers/urlTracker.js';
 import { init as initCustomFont } from './features/sitewide/customFont.js';
+import { init as initCyrillicFont } from './features/sitewide/cyrillicFont.js';
 import { init as initCustomFavicon } from './features/sitewide/customFavicon.js';
 import { init as initTransactionsLink } from './features/navigation/transactionslink.js';
 import { initializeModernIcons as initModernIcons } from './features/sitewide/modernIcons.js';
@@ -148,6 +149,7 @@ import { init as initPrivateServerControls } from './features/games/privateserve
 import { init as initHidePrivateServers } from './features/games/hidePrivateServers.js';
 import { init as initPinPrivateServers } from './features/games/pinPrivateServers.js';
 import { init as initPlusPrivateServerTooltip } from './features/games/plusPrivateServerTooltip.js';
+import { init as initAutoFriendsAllowed } from './features/games/autoFriendsAllowed.js';
 import { init as initPreviousPrice } from './features/sitewide/PreviousPrice.js';
 import { init as initCategorizeWearing } from './features/profile/categorizeWearing.js';
 import { init as initBannedUsers } from './features/profile/bannedusers.js';
@@ -263,6 +265,7 @@ const featureRoutes = [
             initTransactionsLink,
             initStatus,
             initCustomFont,
+            initCyrillicFont,
             initCustomFavicon,
             initRobuxIcons,
             initMoreRobuxDigits,
@@ -368,6 +371,7 @@ const featureRoutes = [
             initPinPrivateServers,
             initHeatmap,
             initPlusPrivateServerTooltip,
+            initAutoFriendsAllowed,
             initCatalogExplorer,
             initUnderReviewPill,
         ],

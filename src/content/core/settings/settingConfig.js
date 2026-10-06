@@ -63,20 +63,24 @@ export const SETTINGS_CONFIG = {
                     {
                         label: languageLabel(
                             'Traditional Chinese (繁體中文)',
-                            'zh-CHT',
+                            'zh_TW',
                         ),
-                        value: 'zh-CHT',
+                        value: 'zh_TW',
                     },
                     {
                         label: languageLabel(
                             'Simplified Chinese (简体中文)',
-                            'zh-CHS',
+                            'zh_CN',
                         ),
-                        value: 'zh-CHS',
+                        value: 'zh_CN',
                     },
                     {
                         label: languageLabel('Arabic (عربي)', 'ar'),
                         value: 'ar',
+                    },
+                    {
+                        label: languageLabel('Vietnamese (Tiếng Việt)', 'vi'),
+                        value: 'vi',
                     },
                     { label: 'Automatic', value: 'auto' },
                 ],
@@ -766,6 +770,27 @@ export const SETTINGS_CONFIG = {
                 ],
                 type: 'checkbox',
                 default: true,
+                childSettings: {
+                    privateServerFriendsToggleEnabled: {
+                        label: 'Friends Allowed Toggle',
+                        description: [
+                            'Adds a Friends Allowed switch under Allow Joining, so you can let friends in or keep them out without opening the server settings.',
+                        ],
+                        type: 'checkbox',
+                        default: true,
+                        contributors: ['4489102289'],
+                    },
+                },
+            },
+            autoFriendsAllowedEnabled: {
+                label: 'Friends Allowed On New Private Servers',
+                description: [
+                    'Turns on Friends Allowed as soon as you create a private server, so your friends can join without you going into its settings first.',
+                    'Only new servers are changed. Servers you already have are left as they are.',
+                ],
+                type: 'checkbox',
+                default: false,
+                contributors: ['4489102289'],
             },
         },
     },
