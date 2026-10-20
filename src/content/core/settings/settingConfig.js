@@ -572,7 +572,7 @@ export const SETTINGS_CONFIG = {
                 ],
                 type: 'checkbox',
                 default: true,
-                storageKey: 'rovalra_badges_v1',
+                indexedDbStore: 'badges',
             },
             badgeLayoutToggleEnabled: {
                 label: 'Badge Layout Toggle',
@@ -1624,6 +1624,15 @@ export const SETTINGS_CONFIG = {
                 type: 'checkbox',
                 default: false,
                 contributors: ['760897332', '3598865306'],
+            },
+            robloxAdminBadgesEnabled: {
+                label: 'Roblox Admin Badges',
+                description: [
+                    'Shows the official Roblox Administrator badge beside names on supported user cards, including Home and the friends list.',
+                ],
+                type: 'checkbox',
+                default: true,
+                contributors: ['127238'],
             },
             homeLayoutEnabled: {
                 label: 'Home Layout',
