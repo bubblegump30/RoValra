@@ -215,6 +215,13 @@ export const SETTINGS_CONFIG = {
                     },
                 },
             },
+            heroUnitsEnabled: {
+                label: 'Marketplace Hero Units',
+                description:
+                    'Adds the featured hero units, like seasonal item collections, to the top of the Marketplace landing page with when they end.',
+                type: 'checkbox',
+                default: true,
+            },
             bonusItemEnabled: {
                 label: 'Robux Purchase Bonus Item Selector',
                 description:
@@ -1259,6 +1266,26 @@ export const SETTINGS_CONFIG = {
                         type: 'checkbox',
                         default: true,
                     },
+                    statusImagesEnabled: {
+                        label: 'Status Images',
+                        description: [
+                            'Allows you to add an image to your status bubble using a decal ID.',
+                            '**The image is saved on RoValras database so anyone with RoValra can view it.**',
+                        ],
+                        type: 'checkbox',
+                        default: true,
+                        donatorTier: 3,
+                        donatorReason:
+                            'Donator Tier 3 is required to add images to your status.',
+                    },
+                    hideStatusImages: {
+                        label: 'Hide Status Images',
+                        description: [
+                            "Hides images in other users' status bubbles.",
+                        ],
+                        type: 'checkbox',
+                        default: false,
+                    },
                 },
             },
             donationbuttonEnable: {
@@ -1880,7 +1907,7 @@ export const SETTINGS_CONFIG = {
                 ],
                 type: 'checkbox',
                 default: false,
-                contributors: ['193520242', '447170745'],
+                contributors: ['193520242', '447170745', '2239549101'],
                 experimental:
                     'Sometimes shows the wrong amount. And it might causes some issues on the site.',
                 childSettings: {
@@ -3574,6 +3601,16 @@ export const SETTINGS_CONFIG = {
                 default: false,
                 contributors: ['10646979010'],
             },
+            debugOverlayEnabled: {
+                label: 'Debug Overlay',
+                description: [
+                    'Shows a debug overlay with performance, loading and graphics information.',
+                    'Press F3 to show or hide it.',
+                ],
+                type: 'checkbox',
+                default: false,
+                contributors: ['2239549101'],
+            },
             alwaysShowAccountStandingTab: {
                 label: ['Always show Account Standing tab'],
                 description: [
@@ -3675,6 +3712,14 @@ export const SETTINGS_CONFIG = {
                 label: ['Simulate RoValra Server Errors / downtime'],
                 description: [
                     'This will simulate RoValra Server errors / downtime, useful when testing how the extension handles stuff like that.',
+                ],
+                type: 'checkbox',
+                default: false,
+            },
+            simulateRoValraApiTimeout: {
+                label: ['Simulate RoValra Region API Timeout'],
+                description: [
+                    'Makes the preferred region search wait the full 5 second RoValra API limit without finding a server, then fall back to scanning locally. Useful for testing the fallback user experience.',
                 ],
                 type: 'checkbox',
                 default: false,

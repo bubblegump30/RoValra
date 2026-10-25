@@ -54,6 +54,7 @@
 @use 'features/catalog/depenencies.scss';
 @use 'features/catalog/explorer.scss';
 @use 'features/catalog/recentlyViewed.scss';
+@use 'features/catalog/heroUnits.scss';
 @use 'features/catalog/friendOwnership.scss';
 @use 'features/trading/recentTradeItems.scss';
 @use 'features/trading/tradeQuickActions.scss';
@@ -65,6 +66,7 @@
 @use 'features/sitewide/themeScrollbar.scss';
 @use 'features/sitewide/less_plus.scss';
 @use 'features/sitewide/kids_theme_text.scss';
+@use 'features/developer/debug_overlay.scss';
 @use 'features/plus/sendRobux.scss';
 @use 'features/sitewide/viewid.scss';
 @use 'features/sitewide/item_search.scss';

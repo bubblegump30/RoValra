@@ -49,6 +49,7 @@ import { init as initCustomRobloxBanner } from './features/sitewide/customRoblox
 import { init as initSidebarCollapse } from './features/sitewide/sidebarCollapse.js';
 import { init as initSidebarLayout } from './features/sitewide/sidebarLayout.js';
 import { init as initHideFriendRequestCount } from './features/sitewide/hideFriendRequestCount.js';
+import { init as initDebugOverlay } from './features/developer/debugOverlay.js';
 import { init as initTopbarLayout } from './features/sitewide/topbarLayout.js';
 import { init as initFriendUsernames } from './features/sitewide/friendUsernames.js';
 import { init as initRobloxAdminBadges } from './features/sitewide/robloxAdminBadges.js';
@@ -82,6 +83,7 @@ import { init as initCatalogBannerTest } from './features/catalog/bannerTest.js'
 import { init as initParentItem } from './features/catalog/ParentItem.js';
 import { init as initPurchasePrompt } from './features/catalog/purchasePrompt.js';
 import { init as initRecentlyViewed } from './features/catalog/recentlyViewed.js';
+import { init as initHeroUnits } from './features/catalog/heroUnits.js';
 import { init as initItemTrading } from './features/catalog/ItemTrading.js';
 import { init as initLastEquipped } from './features/catalog/lastEquipped.js';
 import { init as initOwnedItemPrice } from './features/catalog/ownedItemPrice.js';
@@ -295,6 +297,7 @@ const featureRoutes = [
             initSidebarCollapse,
             initSidebarLayout,
             initHideFriendRequestCount,
+            initDebugOverlay,
             initVoiceBanIndicator,
             initTopbarLayout,
             initFriendUsernames,
@@ -343,6 +346,7 @@ const featureRoutes = [
             initFriendOwnership,
             initCatalogExplorer,
             initRecentlyViewed,
+            initHeroUnits,
         ],
     },
     // Avatar pages
