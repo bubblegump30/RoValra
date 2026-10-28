@@ -228,6 +228,20 @@
         "verifiedBadge": "Verified Badge",
         "by": "By"
     },
+    "betterGraphs": {
+        "summary": "Average price over selected period",
+        "series": {
+            "price": "Recent Average Price",
+            "volume": "Volume"
+        },
+        "ranges": {
+            "30d": "30 Days",
+            "90d": "90 Days",
+            "180d": "180 Days",
+            "1y": "1 Year",
+            "all": "All Time"
+        }
+    },
     "catalogItemSales": {
         "sales": "Sales",
         "revenue": "Revenue",
@@ -923,6 +937,29 @@
         "scanInProgress": "Transaction scan in progress. This may take a while.",
         "loadError": "Unable to load creator spending."
     },
+    "spending": {
+        "title": "Spending",
+        "disclaimer": "This can be inaccurate due to Roblox limitations",
+        "byMonth": "By month",
+        "byYear": "By year",
+        "creators": "Creators",
+        "games": "Experiences",
+        "searchPlaceholder": "Search",
+        "showingPeriod": "Showing {{period}}",
+        "back": "Back",
+        "viewPurchases": "View purchases",
+        "robuxAmount": "{{amount}} Robux",
+        "mostExpensive": "Most expensive",
+        "cheapest": "Cheapest",
+        "newest": "Newest",
+        "oldest": "Oldest",
+        "unknownItem": "Unknown item",
+        "unknownGame": "Unknown experience",
+        "noPurchases": "No purchases found.",
+        "noPurchasesInPeriod": "No purchases in this period.",
+        "scanInProgress": "Transaction scan in progress. This may take a while.",
+        "loadError": "Unable to load spending."
+    },
     "settings": {
         "tabs": {
             "info": "Info",
@@ -1018,7 +1055,8 @@
                     "title": "{{user}}'s Contributions",
                     "contributor": "Contributor",
                     "featureName": "Feature",
-                    "featureKey": "(Dev) Feature Key"
+                    "featureKey": "(Dev) Feature Key",
+                    "viewInSettings": "View all in settings"
                 }
             }
         },
@@ -1072,7 +1110,18 @@
                 "suspended": "Suspended"
             },
             "search": {
-                "placeholder": "Search Settings..."
+                "placeholder": "Search Settings...",
+                "filters": "Filters",
+                "status": "Show",
+                "contributor": "Contributor",
+                "contributorPlaceholder": "Search contributors...",
+                "allSettings": "All contributors",
+                "statuses": {
+                    "deprecated": "Deprecated",
+                    "experimental": "Experimental",
+                    "beta": "Beta",
+                    "locked": "Locked"
+                }
             },
             "controls": {
                 "clearStorage": "Clear Storage",
@@ -1335,6 +1384,7 @@
     "navigation": {
         "transactions": "Transactions",
         "apiDocs": "API Docs",
+        "webClient": "Web Client",
         "incidentLearnMore": "Click here to learn more.",
         "incidentHideNotice": "You can hide this notice here",
         "rovalraApi": "RoValra API"
@@ -1419,6 +1469,12 @@
     "privateServerPage": {
         "regenerateLink": "Generate Link",
         "regenerated": "Generated!"
+    },
+    "storeSaleFilter": {
+        "label": "Sale status",
+        "onSale": "On sale",
+        "offSale": "Off sale",
+        "all": "All"
     },
     "devProducts": {
         "noProducts": "No developer products found.",
@@ -2392,6 +2448,32 @@
     "pinnedFriends": {
         "pin": "Pin to top",
         "unpin": "Unpin"
+    },
+    "channelOverlay": {
+        "title": "Channel",
+        "collapse": "Collapse channel overlay",
+        "hide": "Hide overlay, press F2 to open it again",
+        "live": "LIVE",
+        "unknown": "Waiting for client settings...",
+        "change": "Change channel",
+        "placeholder": "LIVE or a channel name",
+        "apply": "Apply",
+        "reset": "Reset"
+    },
+    "serverLocationOverlay": {
+        "title": "Server Location",
+        "collapse": "Collapse server location overlay",
+        "hide": "Hide overlay, press F3 to open it again",
+        "waiting": "Join a game to see where its server is.",
+        "location": "Location",
+        "version": "Server Version",
+        "channel": "Server Channel",
+        "unknown": "Unknown",
+        "unknownLocation": "Unknown server location",
+        "production": "Production",
+        "appName": "RoValra",
+        "dismiss": "Dismiss",
+        "toastDetails": "Version {{version}} · {{channel}}"
     },
     "debugOverlay": {
         "title": "RoValra Debug",

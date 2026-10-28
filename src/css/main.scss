@@ -11,6 +11,7 @@
 @use 'features/transactions/totalx.scss';
 @use 'components/game_card.scss';
 @use 'components/overlay.scss';
+@use 'components/floating_panel.scss';
 @use 'components/banner.scss';
 @use 'components/game_input.scss';
 @use 'components/pill.scss';
@@ -30,6 +31,7 @@
 @use 'features/settings/bulkUnblock.scss';
 @use 'features/games/servers/serverstats.scss';
 @use 'features/games/servers/privateServerGrid.scss';
+@use 'features/games/storeSaleFilter.scss';
 @use 'features/games/servers/pinPrivateServers.scss';
 @use 'features/games/quickplay.scss';
 @use 'features/games/gameBookmarks.scss';
@@ -54,6 +56,7 @@
 @use 'features/catalog/depenencies.scss';
 @use 'features/catalog/explorer.scss';
 @use 'features/catalog/recentlyViewed.scss';
+@use 'features/catalog/betterGraphs.scss';
 @use 'features/catalog/heroUnits.scss';
 @use 'features/catalog/friendOwnership.scss';
 @use 'features/trading/recentTradeItems.scss';
@@ -67,6 +70,8 @@
 @use 'features/sitewide/less_plus.scss';
 @use 'features/sitewide/kids_theme_text.scss';
 @use 'features/developer/debug_overlay.scss';
+@use 'features/play/channel_overlay.scss';
+@use 'features/play/server_location_overlay.scss';
 @use 'features/plus/sendRobux.scss';
 @use 'features/sitewide/viewid.scss';
 @use 'features/sitewide/item_search.scss';

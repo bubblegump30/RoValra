@@ -113,6 +113,15 @@ export const SETTINGS_CONFIG = {
     Marketplace: {
         title: 'Marketplace',
         settings: {
+            betterGraphsEnabled: {
+                label: 'Better Graphs',
+                description: [
+                    'Replaces the price chart of limited items with one graph RAP and volume, with full history and series you can hide.',
+                ],
+                type: 'checkbox',
+                default: true,
+                contributors: ['2239549101'],
+            },
             itemSalesEnabled: {
                 label: 'Item Sales',
                 contributors: [447170745],
@@ -479,6 +488,14 @@ export const SETTINGS_CONFIG = {
                 default: true,
                 contributors: ['447170745', '10646979010'],
             },
+            storeSaleFilterEnabled: {
+                label: 'Store Sale Filter',
+                description:
+                    'Adds a sale status filter to the store tab of experiences to show on sale, off sale or all passes and developer products.',
+                type: 'checkbox',
+                default: true,
+                contributors: ['2239549101'],
+            },
             shopWidgetsEnabled: {
                 label: 'View In-Game Shop',
                 description:
@@ -680,7 +697,8 @@ export const SETTINGS_CONFIG = {
                 ],
                 type: 'checkbox',
                 default: true,
-                storageKey: 'rovalra_transactions_v2',
+                indexedDbStore: 'transactions',
+                dependedBy: ['spendingEnabled'],
             },
             OldestVersionEnabled: {
                 label: 'Oldest Server Version',
@@ -976,6 +994,8 @@ export const SETTINGS_CONFIG = {
                 ],
                 type: 'checkbox',
                 default: true,
+                locked: 'Due to people selling RoValra profile views as a service.',
+                isPermanent: true,
             },
             creatorStatsEnabled: {
                 label: 'Creator Stats',
@@ -1962,21 +1982,17 @@ export const SETTINGS_CONFIG = {
                 type: 'checkbox',
                 default: true,
             },
-            spentPerGameEnabled: {
-                label: 'Spent Per Experience',
+            spendingEnabled: {
+                label: 'Spending Breakdown',
                 description: [
-                    'Shows how much Robux you have spent on each experience on the transactions page.',
+                    'Shows a timeline of how much Robux you have spent, along with how much you have spent on each creator and experience on the transactions page.',
+                    'Click a month or year to filter by it, or use **View purchases** to see everything you bought from a creator or experience.',
+                    'Uses the transaction scan from **Total Spent on Experience**.',
                 ],
                 type: 'checkbox',
                 default: true,
-            },
-            spentPerCreatorEnabled: {
-                label: 'Spent Per Creator',
-                description: [
-                    'Shows how much Robux you have spent on each user and group on the transactions page.',
-                ],
-                type: 'checkbox',
-                default: true,
+                indexedDbStore: 'transactions',
+                dependsOn: ['TotalSpentGamesEnabled'],
             },
             totalearnedEnabled: {
                 label: 'Total Earned',
@@ -3476,6 +3492,36 @@ export const SETTINGS_CONFIG = {
                         placeholder: 'Enter Font Link here...',
                     },
                 },
+            },
+        },
+    },
+    Play: {
+        title: 'Roblox Website Client',
+        settings: {
+            channelOverlayEnabled: {
+                label: 'Channel Overlay',
+                description: [
+                    'Shows an overlay on play.roblox.com with your channel, which you can change.',
+                    'It opens automatically whenever you are on play.roblox.com. Press F2 to show or hide it.',
+                ],
+                type: 'checkbox',
+                default: false,
+            },
+            serverLocationOverlayEnabled: {
+                label: 'Server Location Overlay',
+                description: [
+                    'Shows a notification on play.roblox.com with the location, version and channel of the server you joined.',
+                    'Click the notification or press F3 to open an overlay with the same info.',
+                ],
+                type: 'checkbox',
+                default: true,
+            },
+            webClientSidebarLinkEnabled: {
+                label: 'Web Client sidebar link',
+                description:
+                    'Adds a Web Client link below Communities in the Roblox sidebar that opens play.roblox.com.',
+                type: 'checkbox',
+                default: false,
             },
         },
     },

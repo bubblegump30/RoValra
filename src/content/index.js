@@ -28,6 +28,7 @@ import { initAuthenticatedUserLanguageTracking } from './core/utils/trackers/lan
 import { init as initPlaytimeTracker } from './core/utils/trackers/playtime.js';
 import { init as initPrivateGames } from './features/games/privateGames.js';
 import { init as initGamePassViewer } from './features/games/gamePassViewer.js';
+import { init as initStoreSaleFilter } from './features/games/storeSaleFilter.js';
 import { init as initCopyId } from './features/sitewide/copyid.js';
 import { init as initRichRobloxLinks } from './features/sitewide/richRobloxLinks.js';
 import { init as initViewIds } from './features/sitewide/viewid.js';
@@ -40,6 +41,7 @@ import { init as initCyrillicFont } from './features/sitewide/cyrillicFont.js';
 import { init as initCustomFavicon } from './features/sitewide/customFavicon.js';
 import { init as initCursorBuddy } from './features/sitewide/cursorBuddy.js';
 import { init as initTransactionsLink } from './features/navigation/transactionslink.js';
+import { init as initWebClientLink } from './features/navigation/webclientlink.js';
 import { initializeModernIcons as initModernIcons } from './features/sitewide/modernIcons.js';
 import { init as initLoginBanner } from './features/scamprevention/loginBanner.js';
 import { init as initLessPlus } from './features/sitewide/lessPlus.js';
@@ -50,6 +52,8 @@ import { init as initSidebarCollapse } from './features/sitewide/sidebarCollapse
 import { init as initSidebarLayout } from './features/sitewide/sidebarLayout.js';
 import { init as initHideFriendRequestCount } from './features/sitewide/hideFriendRequestCount.js';
 import { init as initDebugOverlay } from './features/developer/debugOverlay.js';
+import { init as initChannelOverlay } from './features/play/channelOverlay.js';
+import { init as initServerLocationOverlay } from './features/play/serverLocationOverlay.js';
 import { init as initTopbarLayout } from './features/sitewide/topbarLayout.js';
 import { init as initFriendUsernames } from './features/sitewide/friendUsernames.js';
 import { init as initRobloxAdminBadges } from './features/sitewide/robloxAdminBadges.js';
@@ -75,6 +79,7 @@ import { init as initBodyColors } from './features/avatar/bodyColors.js';
 import { init as initGameOutfits } from './features/avatar/gameOutfits.js';
 
 // Catalog
+import { init as initBetterGraphs } from './features/catalog/betterGraphs.js';
 import { init as initItemSales } from './features/catalog/itemsales.js';
 import { init as init40Method } from './features/catalog/40method.js';
 import { init as initDependencies } from './features/catalog/depenencies.js';
@@ -120,8 +125,7 @@ import { init as initEvents } from './features/games/about/events.js';
 import { init as initUnderReviewPill } from './features/games/underReviewPill.js';
 // transactions
 import { init as initTotalSpent } from './features/transactions/totalspent.js';
-import { init as initSpentPerGame } from './features/transactions/spentPerGame.js';
-import { init as initSpentPerCreator } from './features/transactions/spentPerCreator.js';
+import { init as initSpending } from './features/transactions/spending.js';
 import { init as initPendingRobuxTrans } from './features/transactions/pendingRobuxTrans.js';
 import { init as initTotalEarned } from './features/transactions/totalearned.js';
 // Trading
@@ -276,6 +280,7 @@ const featureRoutes = [
             initBannedUsers,
             initGroupFunds,
             initTransactionsLink,
+            initWebClientLink,
             initStatus,
             initCustomFont,
             initCyrillicFont,
@@ -298,6 +303,8 @@ const featureRoutes = [
             initSidebarLayout,
             initHideFriendRequestCount,
             initDebugOverlay,
+            initChannelOverlay,
+            initServerLocationOverlay,
             initVoiceBanIndicator,
             initTopbarLayout,
             initFriendUsernames,
@@ -334,6 +341,7 @@ const featureRoutes = [
     {
         paths: ['/catalog', '/bundles'],
         features: [
+            initBetterGraphs,
             initDependencies,
             initItemSales,
             initPriceFloor,
@@ -414,6 +422,7 @@ const featureRoutes = [
             initBadgeOwnership,
             initBadgeEarnedDate,
             initBadgeSort,
+            initStoreSaleFilter,
         ],
     },
     {
@@ -507,8 +516,7 @@ const featureRoutes = [
         paths: ['/transactions'],
         features: [
             initTotalSpent,
-            initSpentPerGame,
-            initSpentPerCreator,
+            initSpending,
             initPendingRobuxTrans,
             initTotalEarned,
         ],
