@@ -1,6 +1,7 @@
 let observerInitialized = false;
 const observationRequests = new Set();
 let globalObserver = null;
+let attributeObserver = null;
 let attributeListeners = new Map();
 let childListListeners = new Map();
 const characterDataListeners = new WeakMap();
@@ -130,32 +131,39 @@ function processAddedTree(addedNode) {
     }
 }
 
+function handleAttributeMutation(mutation) {
+    let listeners = attributeListeners.get(mutation.target);
+
+    if (!listeners) {
+        for (const [observedElement, callbacks] of attributeListeners) {
+            if (
+                observedElement !== mutation.target &&
+                observedElement.contains(mutation.target)
+            ) {
+                listeners = callbacks;
+                break;
+            }
+        }
+    }
+
+    if (listeners) {
+        for (const listener of [...listeners]) listener(mutation);
+    }
+}
+
 export function initializeObserver() {
     if (observerInitialized) {
         return;
     }
 
+    attributeObserver = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) handleAttributeMutation(mutation);
+    }); //Verified
+
     globalObserver = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
             if (mutation.type === 'attributes') {
-                let listener = attributeListeners.get(mutation.target);
-
-                if (!listener) {
-                    for (const [
-                        observedElement,
-                        callback,
-                    ] of attributeListeners) {
-                        if (
-                            observedElement !== mutation.target &&
-                            observedElement.contains(mutation.target)
-                        ) {
-                            listener = callback;
-                            break;
-                        }
-                    }
-                }
-
-                if (listener) listener(mutation);
+                handleAttributeMutation(mutation);
                 continue;
             }
 
@@ -248,8 +256,10 @@ export const observeAttributes = (
 ) => {
     if (!observerInitialized) initializeObserver();
 
-    attributeListeners.set(element, callback);
-    globalObserver.observe(element, {
+    if (!attributeListeners.has(element))
+        attributeListeners.set(element, new Set());
+    attributeListeners.get(element).add(callback);
+    attributeObserver.observe(element, {
         attributes: true,
         attributeFilter,
         subtree: options.subtree || false,
@@ -257,7 +267,10 @@ export const observeAttributes = (
 
     return {
         disconnect: () => {
-            attributeListeners.delete(element);
+            const callbacks = attributeListeners.get(element);
+            if (!callbacks) return;
+            callbacks.delete(callback);
+            if (!callbacks.size) attributeListeners.delete(element);
         },
     };
 };
@@ -421,6 +434,13 @@ export function startObserving() {
         return 'failed';
     }
 
+    let headObserved = false;
+    const observeHead = () => {
+        if (headObserved || !document.head) return;
+        globalObserver.observe(document.head, { childList: true });
+        headObserved = true;
+    };
+
     const observeBody = () => {
         if (document.body) {
             globalObserver.observe(document.body, {
@@ -432,9 +452,11 @@ export function startObserving() {
         return false;
     };
 
+    observeHead();
     if (observeBody()) return 'active';
 
     const bodyWatcher = new MutationObserver((_, obs) => {
+        observeHead();
         if (observeBody()) {
             obs.disconnect();
         }
